@@ -1,0 +1,31 @@
+
+public class Bootup2 {
+	public void display()
+	{
+		System.out.println("Showing phone LOGO");
+	}
+public static class watsapp extends Bootup2
+{
+	public void display()
+	{
+		System.out.println("Showing Watsapp LOGO");
+	}
+	public void display(int n)
+	{
+		for (int i=0;i>n;i++) {
+			System.out.println("Showing Watsapp LOGO");
+			}
+		}
+public class methodOverriding
+{
+	public static void main (String[] args)
+	{
+		Bootup2 obj = new Bootup2();
+		obj.display();
+		watsapp obj1 = new watsapp();
+		obj1.display(2);
+	}
+}
+}
+}
+
