@@ -1,0 +1,33 @@
+
+public class Bootup1 {
+	public void display()
+	{
+		System.out.println("Showing phone LOGO");
+	}
+public static class watsapp extends Bootup1
+{
+	public void display()
+	{
+		System.out.println("Showing Watsapp LOGO");
+	}
+public  static class instagram extends Bootup1
+{
+	public void display()
+	{
+		System.out.println("Showing Instagram LOGO");
+	}
+public class methodOverriding
+{
+	public static void main (String[] args)
+	{
+		Bootup1 obj = new Bootup1();
+		obj.display();
+		watsapp obj1 = new watsapp();
+		obj1.display();
+		instagram obj2 = new instagram();
+		obj2.display();
+	}
+}
+}
+}
+}
