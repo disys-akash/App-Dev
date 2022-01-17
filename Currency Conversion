@@ -1,56 +1,62 @@
 import java.util.Scanner;
-public  class CurrencyConverter {
+public abstract class CurrencyConverter {
 	double inr,usd;
 	double yen,euro;
 	Scanner in = new Scanner(System.in);
-	 public void inrToUsd() {
-		 System.out.println("Enter Number to Convert from Dollars To Rupees");
-		 usd = in.nextInt();
-		 inr = usd*74.16;
-		 System.out.println(usd + " Dollar Equals to " + inr + " Rupees");
-		 
-	 }
-	 public void usdToInr() {
-		 System.out.println("Enter Number to Convert from Rupees To Dollars");
-		 inr = in.nextInt();
-		 usd = inr/74.16;
-		 System.out.println(inr +" Rupees Equals to " + usd + " Dollars");
-		 
-	 }
-	 public void inrToEur() {
-		 System.out.println("Enter Number to Convert from Euro To Rupees");
-		 euro = in.nextInt();
-		 inr = euro*84.88;
-		 System.out.println(euro + " Euro Equals to " + inr + " Rupees");
-		 
-	 }
-	 public void eurToInr() {
-		 System.out.println("Enter Number to Convert from Rupees To Euro");
-		 inr = in.nextInt();
-		 euro = inr/84.88;
-		 System.out.println(inr + " Rupees Equals to " + euro + " Euro");
-		 
-	 }
-	 public void inrToYen() {
-		 System.out.println("Enter Number to Convert from Rupees To Yen");
-		 yen = in.nextInt();
-		 inr = yen*0.65;
-		 System.out.println(yen + " Yen Equals to " + inr + " Rupees");
-		 
-	 }
-	 public void yenToInr() {
-		 System.out.println("Enter Number to Convert from Yen To Rupees");
-		 inr = in.nextInt();
-		 yen = inr/0.65;
-		 System.out.println(inr + " Rupees Equals to " + yen + " Yen");
-		 
-	 }
-	 
+	 public abstract void inrToUsd();
+	 public abstract void usdToInr();
+	 public abstract void inrToEur();
+	 public abstract void eurToInr() ;
+	 public abstract void inrToYen();
+	 public abstract void yenToInr();
 	public static void main(String[] args)
 	{
 		int choice;
 		Scanner s = new Scanner (System.in);
-		CurrencyConverter c = new CurrencyConverter();
+		CurrencyConverter c = new CurrencyConverter() {
+
+			@Override
+			public void inrToUsd() {
+				System.out.println("Enter Number to Convert from Dollars To Rupees");
+				 usd = in.nextInt();
+				 inr = usd*74.16;
+				 System.out.println(usd + " Dollar Equals to " + inr + " Rupees");	
+			}
+			@Override
+			public void usdToInr() {
+				 System.out.println("Enter Number to Convert from Rupees To Dollars");
+				 inr = in.nextInt();
+				 usd = inr/74.16;
+				 System.out.println(inr +" Rupees Equals to " + usd + " Dollars");				
+			}
+			@Override
+			public void inrToEur() {
+				System.out.println("Enter Number to Convert from Euro To Rupees");
+				 euro = in.nextInt();
+				 inr = euro*84.88;
+				 System.out.println(euro + " Euro Equals to " + inr + " Rupees");	 				
+			}
+			@Override
+			public void eurToInr() {
+				 System.out.println("Enter Number to Convert from Rupees To Euro");
+				 inr = in.nextInt();
+				 euro = inr/84.88;
+				 System.out.println(inr + " Rupees Equals to " + euro + " Euro");	
+			}
+			@Override
+			public void inrToYen() {
+				System.out.println("Enter Number to Convert from Rupees To Yen");
+				 yen = in.nextInt();
+				 inr = yen*0.65;
+				 System.out.println(yen + " Yen Equals to " + inr + " Rupees");	 				
+			}
+			@Override
+			public void yenToInr() {
+				 System.out.println("Enter Number to Convert from Yen To Rupees");
+				 inr = in.nextInt();
+				 yen = inr/0.65;
+				 System.out.println(inr + " Rupees Equals to " + yen + " Yen");	 				
+			}};
 		System.out.println("Press 1 to Convert Dollar to Rupee ");
 		System.out.println("Press 2 to convert Rupee to Dollar ");
 		System.out.println("Press 3 to convert Euro to Rupee ");
@@ -94,13 +100,4 @@ public  class CurrencyConverter {
 		}
 		s.close();	
 	}
-	public abstract class noCoversion {
-		 public abstract void   usdToEur();
-		 public abstract void   eurTousd();
-		 public abstract void   yenToUsd();
-		 public abstract void   usdToYen();
-		 public abstract void   yenToEur();
-		 public abstract void   eurToYen();	
-	}
 }
-
