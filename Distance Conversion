@@ -1,0 +1,72 @@
+import java.util.Scanner;
+public class DistanceConverter {
+	double mts,km,miles;
+	Scanner in = new Scanner (System.in);
+	public void mtsToKm(){
+		 System.out.println("Enter Number to Convert from Meter to Kilometer");
+		mts = in.nextInt();
+		km = mts/1000;
+		System.out.println(mts+" Meter is Equal to "+ km + " Kilometer");		
+	}
+	public void kmToMts(){
+		 System.out.println("Enter Number to Convert from Kilometer to Meter");
+		km = in.nextInt();
+		mts = km*1000;
+		System.out.println(km+" Meter is Equal to "+ mts + " Kilometer");		
+	}
+	public void milesToKm(){
+		 System.out.println("Enter Number to Convert from Miles to Kilometer");
+		miles = in.nextInt();
+		km = miles*1.609;
+		System.out.println(miles +" Meter is Equal to "+ km + " Kilometer");		
+	}
+	public void kmToMiles(){
+		 System.out.println("Enter Number to Convert from Kilometer to Miles");
+		km = in.nextInt();
+		miles = km/1.609;
+		System.out.println(km +" Meter is Equal to "+ miles + " Kilometer");		
+	}
+	
+
+	public static void main(String[] args) {
+		int choice;
+		Scanner s = new Scanner (System.in);
+		DistanceConverter d =new DistanceConverter();
+		System.out.println("Press 1 to Convert Meter to Kilometer ");
+		System.out.println("Press 2 to convert Kilometer to Meter ");
+		System.out.println("Press 3 to convert Miles to Kilometer ");
+		System.out.println("Press 4 to convert Kilometer to Miles ");
+		choice = s.nextInt();
+		switch(choice)
+		{
+		case 1 :
+		{
+			d.mtsToKm();
+			break;
+		}
+		case 2 :
+		{
+			d.kmToMts();
+			break;
+			
+		}
+		case 3 :
+		{
+			d.milesToKm();
+			break;
+		}
+		case 4:
+		{
+			d.kmToMiles();
+			break;
+		}
+		}
+		s.close();	
+	}
+public abstract class noConversion{
+	
+	public abstract void mtsToMiles();
+	public abstract void milesTomts();
+	
+}
+}
