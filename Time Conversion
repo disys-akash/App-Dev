@@ -1,40 +1,46 @@
 import java.util.Scanner;
-public class TimeConversion {
+public abstract class TimeConversion {
 	int seconds,minutes,hours,i;
 	Scanner in = new Scanner(System.in);
-	public void secondsToHours(){
-		System.out.print("Enter the number of Seconds to convert into Hours ");
-		i = in.nextInt(); 
-		hours = i / 3600;
-		minutes = (i % 3600) / 60;
-		seconds = (i % 3600) % 60;
-		System.out.println(hours +"Hours " + minutes +"Minutes " + seconds +"Seconds " );
-	}
-	public void minutesToHours(){
-		System.out.print("Enter the number of Minutes to convert into Hours ");
-		minutes=in.nextInt();
-		hours=minutes/60;
-		minutes=minutes%60;
-		System.out.println(hours+"Hours "  + minutes + "Minutes ");
-		}
-	public void hoursToMinutes()
-	{
-		System.out.println("Enter the number of Hours to convert into Minutes ");
-		hours=in.nextInt();
-		minutes=(hours*60);
-		System.out.println(minutes+"Minutes ");
-		}
-	public void hoursToSeconds()
-	{
-		System.out.println("Enter the number of Hours to convert into Seconds ");
-		hours=in.nextInt();
-		seconds=(hours*3600);
-		System.out.println(seconds + "Seconds" );
-		} 
+	public abstract void secondsToHours();
+	public abstract void minutesToHours();
+	public abstract void hoursToMinutes();
+	public abstract void hoursToSeconds();
 	public static void main(String[] args) {
 		int choice;
 		Scanner s = new Scanner (System.in);
-		TimeConversion  t =new TimeConversion();
+		TimeConversion  t =new TimeConversion() {
+			@Override
+			public void secondsToHours() {
+				System.out.print("Enter the number of Seconds to convert into Hours ");
+				i = in.nextInt(); 
+				hours = i / 3600;
+				minutes = (i % 3600) / 60;
+				seconds = (i % 3600) % 60;
+				System.out.println(hours +"Hours " + minutes +"Minutes " + seconds +"Seconds " );
+			}
+			@Override
+			public void minutesToHours() {
+				System.out.print("Enter the number of Minutes to convert into Hours ");
+				minutes=in.nextInt();
+				hours=minutes/60;
+				minutes=minutes%60;
+				System.out.println(hours+"Hours "  + minutes + "Minutes ");	
+			}
+			@Override
+			public void hoursToMinutes() {
+				System.out.println("Enter the number of Hours to convert into Minutes ");
+				hours=in.nextInt();
+				minutes=(hours*60);
+				System.out.println(minutes+"Minutes ");	
+			}
+			@Override
+			public void hoursToSeconds() {
+				System.out.println("Enter the number of Hours to convert into Seconds ");
+				hours=in.nextInt();
+				seconds=(hours*3600);
+				System.out.println(seconds + "Seconds" );
+			}};
 		System.out.println("Press 1 to Convert Hours into Minutes ");
 		System.out.println("Press 2 to convert Minute into Hours ");
 		System.out.println("Press 3 to convert Hours  into Minutes ");
@@ -66,12 +72,5 @@ public class TimeConversion {
 		}
 		s.close();	
 	}
-	public abstract class noConversion
-	{
-		public abstract void minutesToSeconds();
-		public abstract void secondsToMinutes();
-
 		
 	}
-	}
-
