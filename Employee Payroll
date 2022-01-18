@@ -1,0 +1,187 @@
+import java.util.*;
+public class Employee {
+	String Emp_name, Address,Email_id;
+	int Emp_id;
+	long mob_no;
+	Scanner get = new Scanner(System.in);
+	public void getData()
+	{
+		System.out.println("Enter your Name");
+		Emp_name = get.nextLine();
+		System.out.println("Enter your Address");
+		Address = get.nextLine();
+		System.out.println("Enter your Email Id");
+		Email_id = get.nextLine();
+		System.out.println("Enter your Emp id");
+		Emp_id = get.nextInt();
+		System.out.println("Enter your Mobile No");	
+		mob_no = get.nextLong();
+	}
+	public void Display() {
+		System.out.println("Name:"+Emp_name);
+		System.out.println("Address:"+Address);
+		System.out.println("Email Id"+Email_id);
+		System.out.println("Emp Id"+Emp_id);
+		System.out.println("Enter your Name"+mob_no);
+	}
+
+	public static void main(String[] args) {
+		int choice;
+		Scanner s = new Scanner (System.in);
+		System.out.println("PAYROLL");
+		System.out.println("1.PROGRAMMER \n2.ASSISTANT PROFESSOR\n3.ASSOCIATE PROFESSOR\n4.PROFESSOR");
+		System.out.println("Select Your Desigination");
+
+		choice = s.nextInt();
+		switch(choice) {
+		case 1:
+		{
+			programmer input = new programmer();
+			System.out.println("Payroll for Programmer");
+			input.getData();
+			input.programmerData();
+			input.Display();
+			input.programmerCal();
+			break;
+		}
+		case 2:
+		{
+			Asstprof input = new Asstprof();
+			input.getData();
+			input.AsstprofData();
+			input.Display();
+			input.AsstprofCal();
+			break;
+		}
+		case 3:
+		{
+			Asoprofessor input = new Asoprofessor();
+			input.getData();
+			input.AsoprofessorData();
+			input.Display();
+			input.AsoprofessorData();
+			break;
+		}
+		case 4:
+		{
+			professor input = new professor();
+			input.getData();
+			input.professorData();
+			input.Display();
+			input.professorCal();
+			break;
+		}
+		}
+		
+	}
+	}
+class programmer extends Employee
+{
+	double bp,da,hra,pf,club,salary,net,gross;
+	 public void programmerData()
+	 {
+			System.out.println("Enter your Basic Pay");
+
+		 bp=get.nextDouble();
+	 }
+	 public void programmerCal()
+	 {
+		 da= 0.97*bp;
+		 hra= 0.10*bp;
+		 pf= 0.12*bp;
+		 club= 0.1*bp;
+		 gross=(bp+da+hra);
+		 net=(gross-pf-club);
+		 System.out.println("PAY SLIP FOR PROGRAMMER");
+		 System.out.println("Basic Pay: Rs. "+bp);
+		 System.out.println("DA: Rs. "+da);
+		 System.out.println("HRA: Rs. "+hra);
+		 System.out.println("PF: Rs. "+pf);
+		 System.out.println("CLUB: Rs. "+club);
+		 System.out.println("GROSS PAY: Rs. "+gross);
+		 System.out.println("NET PAY: Rs. "+net);  
+	 }
+}
+class Asstprof extends Employee
+{
+	double bp,da,hra,pf,club,salary,net,gross;
+	 public void AsstprofData()
+	 {
+			System.out.println("Enter your Basic Pay");
+
+		 bp=get.nextDouble();
+	 }
+	 public void AsstprofCal()
+	 {
+		 da= 0.97*bp;
+		 hra= 0.10*bp;
+		 pf= 0.12*bp;
+		 club= 0.1*bp;
+		 gross=(bp+da+hra);
+		 net=(gross-pf-club);
+		 System.out.println("PAY SLIP FOR Assistant Professor");
+		 System.out.println("Basic Pay: Rs. "+bp);
+		 System.out.println("DA: Rs. "+da);
+		 System.out.println("HRA: Rs. "+hra);
+		 System.out.println("PF: Rs. "+pf);
+		 System.out.println("CLUB: Rs. "+club);
+		 System.out.println("GROSS PAY: Rs. "+gross);
+		 System.out.println("NET PAY: Rs. "+net);  
+	 }
+}
+class Asoprofessor extends Employee
+{
+	double bp,da,hra,pf,club,salary,net,gross;
+	 public void AsoprofessorData()
+	 {
+			System.out.println("Enter your Basic Pay");
+
+		 bp=get.nextDouble();
+	 }
+	 public void AsoprofessorCal()
+	 {
+		 da= 0.97*bp;
+		 hra= 0.10*bp;
+		 pf= 0.12*bp;
+		 club= 0.1*bp;
+		 gross=(bp+da+hra);
+		 net=(gross-pf-club);
+		 System.out.println("PAY SLIP FOR Associate professor");
+		 System.out.println("Basic Pay: Rs. "+bp);
+		 System.out.println("DA: Rs. "+da);
+		 System.out.println("HRA: Rs. "+hra);
+		 System.out.println("PF: Rs. "+pf);
+		 System.out.println("CLUB: Rs. "+club);
+		 System.out.println("GROSS PAY: Rs. "+gross);
+		 System.out.println("NET PAY: Rs. "+net);  
+	 }
+}
+class professor extends Employee
+{
+	double bp,da,hra,pf,club,salary,net,gross;
+	 public void professorData()
+	 {
+			System.out.println("Enter your Basic Pay");
+
+		 bp=get.nextDouble();
+	 }
+	 public void professorCal()
+	 {
+		 da= 0.97*bp;
+		 hra= 0.10*bp;
+		 pf= 0.12*bp;
+		 club= 0.1*bp;
+		 gross=(bp+da+hra);
+		 net=(gross-pf-club);
+		 System.out.println("PAY SLIP FOR Professor");
+		 System.out.println("Basic Pay: Rs. "+bp);
+		 System.out.println("DA: Rs. "+da);
+		 System.out.println("HRA: Rs. "+hra);
+		 System.out.println("PF: Rs. "+pf);
+		 System.out.println("CLUB: Rs. "+club);
+		 System.out.println("GROSS PAY: Rs. "+gross);
+		 System.out.println("NET PAY: Rs. "+net);  
+	 }
+}
+
+
